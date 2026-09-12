@@ -1,0 +1,375 @@
+/* ============================================
+   ISHANI COSMETICS - PROFESSIONAL NAVBAR
+   ============================================ */
+
+/* ===== NAVBAR CONTAINER ===== */
+.ishani-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #0A0A0A;
+  border-bottom: 1px solid #1A1A1A;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  padding: 1rem 0;
+}
+
+.ishani-navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: #252525;
+  padding: 0.75rem 0;
+}
+
+.ishani-navbar .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ============================================
+   LOGO (Thoda Right Shift)
+   ============================================ */
+.ishani-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-left: 16px;
+}
+
+.ishani-logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #2A2A2A;
+  flex-shrink: 0;
+}
+
+.ishani-logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ishani-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.ishani-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.ishani-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: #6B7280;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ============================================
+   NAV LINKS
+   ============================================ */
+.ishani-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-left: 40px;
+}
+
+.ishani-nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  color: #9CA3AF;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  background: transparent;
+  border: none;
+  padding: 0;
+  position: relative;
+}
+
+.ishani-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.ishani-nav-link.active {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* ============================================
+   RIGHT SIDE (Thoda Right Shift)
+   ============================================ */
+.ishani-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: 8px;
+}
+
+/* ============================================
+   CART BUTTON + TOOLTIP
+   ============================================ */
+.ishani-cart-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #2A2A2A;
+  color: #FFFFFF;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.ishani-cart-btn:hover {
+  border-color: #3B82F6;
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* ✅ Tooltip Text */
+.ishani-cart-btn::after {
+  content: 'Add to Cart';
+  position: absolute;
+  bottom: -38px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: #1A1A1A;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  border: 1px solid #2A2A2A;
+  z-index: 10;
+}
+
+/* ✅ Tooltip Arrow */
+.ishani-cart-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #1A1A1A;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+
+/* ✅ Hover par tooltip show */
+.ishani-cart-btn:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.ishani-cart-btn:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Cart Badge */
+.ishani-cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: #3B82F6;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid #0A0A0A;
+}
+
+/* User Avatar */
+.ishani-user-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #3B82F6;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease;
+  letter-spacing: 0.5px;
+}
+
+.ishani-user-btn:hover {
+  background: #2563EB;
+}
+
+/* ============================================
+   MOBILE TOGGLE
+   ============================================ */
+.ishani-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #2A2A2A;
+  color: #FFFFFF;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease;
+}
+
+.ishani-toggle:hover {
+  border-color: #3B82F6;
+}
+
+/* ============================================
+   DROPDOWN
+   ============================================ */
+.ishani-dropdown {
+  background: #0F0F0F;
+  border: 1px solid #252525;
+  border-radius: 10px;
+  padding: 4px;
+  min-width: 180px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  margin-top: 8px;
+}
+
+.ishani-dropdown .dropdown-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9CA3AF;
+  padding: 9px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.ishani-dropdown .dropdown-item:hover {
+  background: #1A1A1A;
+  color: #FFFFFF;
+}
+
+.ishani-dropdown .dropdown-item i {
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.ishani-dropdown .dropdown-item:hover i {
+  color: #FFFFFF;
+}
+
+.ishani-dropdown .dropdown-divider {
+  border-color: #252525;
+  margin: 4px 0;
+}
+
+.ishani-dropdown .logout-item {
+  color: #EF4444;
+}
+
+.ishani-dropdown .logout-item i {
+  color: #EF4444;
+}
+
+.ishani-dropdown .logout-item:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: #EF4444;
+}
+
+.ishani-dropdown .logout-item:hover i {
+  color: #EF4444;
+}
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+.ishani-mobile-menu {
+  padding: 0 2rem 16px;
+}
+
+.ishani-mobile-inner {
+  background: #0F0F0F;
+  border: 1px solid #252525;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.ishani-mobile-link {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #9CA3AF;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.ishani-mobile-link:hover {
+  color: #FFFFFF;
+  background: #1A1A1A;
+}
+
+.ishani-mobile-link.active {
+  color: #FFFFFF;
+  background: rgba(59, 130, 246, 0.1);
+  font-weight: 500;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 991px) {
+  .ishani-navbar .container-fluid {
+    padding: 0 1.2rem;
+  }
+}
