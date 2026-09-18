@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './css/footer.css'
+import logo from '../../assets/banner.jpeg'   // ✅ same banner as logo
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -49,14 +50,11 @@ const Footer = () => {
           <div className="col-lg-4 col-md-6">
             <Link to="/" className="ishani-footer-logo d-flex align-items-center gap-2 text-decoration-none mb-3">
               <div className="ishani-footer-logo-img">
-                <img
-                  src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=200&h=200&fit=crop&q=85"
-                  alt="ISHANI Cosmetics"
-                />
+                <img src={logo} alt="ANSHIÉ's GLAM" />
               </div>
               <div className="d-flex flex-column lh-1">
-                <span className="ishani-footer-brand">ISHANI</span>
-                <span className="ishani-footer-tagline">Cosmetics</span>
+                <span className="ishani-footer-brand">ANSHIÉ's</span>
+                <span className="ishani-footer-tagline">GLAM</span>
               </div>
             </Link>
 
@@ -156,7 +154,7 @@ const Footer = () => {
               </li>
               <li>
                 <i className="bi bi-envelope-fill"></i>
-                <span>hello@ishani.com</span>
+                <span>hello@anshiesglam.com</span>
               </li>
               <li>
                 <i className="bi bi-telephone-fill"></i>
@@ -170,7 +168,7 @@ const Footer = () => {
         {/* ===== BOTTOM BAR ===== */}
         <div className="ishani-footer-bottom d-flex flex-wrap justify-content-between align-items-center py-4 gap-3">
           <p className="ishani-footer-copy mb-0">
-            Made with <i className="bi bi-heart-fill ishani-heart"></i> by <span>ISHANI Cosmetics</span> © {currentYear}
+            Made with <i className="bi bi-heart-fill ishani-heart"></i> by <span>ANSHIÉ's GLAM</span> © {currentYear}
           </p>
 
           <div className="ishani-footer-payments d-flex align-items-center gap-3">

@@ -1,8 +1,8 @@
 /* ============================================
-   ISHANI COSMETICS - PROFESSIONAL NAVBAR
+   ISHANI COSMETICS — NAVBAR
+   Black + blue theme · white icons · tooltip
    ============================================ */
 
-/* ===== NAVBAR CONTAINER ===== */
 .ishani-navbar {
   position: sticky;
   top: 0;
@@ -30,9 +30,7 @@
   padding: 0 2rem;
 }
 
-/* ============================================
-   LOGO (Thoda Right Shift)
-   ============================================ */
+/* ===== LOGO ===== */
 .ishani-logo {
   display: flex;
   align-items: center;
@@ -42,9 +40,9 @@
 }
 
 .ishani-logo-img {
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid #2A2A2A;
   flex-shrink: 0;
@@ -82,9 +80,7 @@
   margin-top: 3px;
 }
 
-/* ============================================
-   NAV LINKS
-   ============================================ */
+/* ===== NAV LINKS ===== */
 .ishani-nav-links {
   display: flex;
   align-items: center;
@@ -100,24 +96,12 @@
   color: #9CA3AF;
   text-decoration: none;
   transition: color 0.25s ease;
-  background: transparent;
-  border: none;
-  padding: 0;
-  position: relative;
 }
 
-.ishani-nav-link:hover {
-  color: #FFFFFF;
-}
+.ishani-nav-link:hover { color: #FFFFFF; }
+.ishani-nav-link.active { color: #FFFFFF; font-weight: 500; }
 
-.ishani-nav-link.active {
-  color: #FFFFFF;
-  font-weight: 500;
-}
-
-/* ============================================
-   RIGHT SIDE (Thoda Right Shift)
-   ============================================ */
+/* ===== RIGHT SIDE ===== */
 .ishani-right {
   display: flex;
   align-items: center;
@@ -126,32 +110,14 @@
 }
 
 /* ============================================
-   CART BUTTON + TOOLTIP
+   UNIVERSAL TOOLTIP (data-tooltip)
    ============================================ */
-.ishani-cart-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  background: transparent;
-  border: 1px solid #2A2A2A;
-  color: #FFFFFF;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+[data-tooltip] {
   position: relative;
-  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-.ishani-cart-btn:hover {
-  border-color: #3B82F6;
-  background: rgba(59, 130, 246, 0.05);
-}
-
-/* ✅ Tooltip Text */
-.ishani-cart-btn::after {
-  content: 'Add to Cart';
+[data-tooltip]::after {
+  content: attr(data-tooltip);
   position: absolute;
   bottom: -38px;
   left: 50%;
@@ -172,8 +138,7 @@
   z-index: 10;
 }
 
-/* ✅ Tooltip Arrow */
-.ishani-cart-btn::before {
+[data-tooltip]::before {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -190,18 +155,36 @@
   z-index: 10;
 }
 
-/* ✅ Hover par tooltip show */
-.ishani-cart-btn:hover::after {
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 
-.ishani-cart-btn:hover::before {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+/* ============================================
+   CART BUTTON — WHITE icon
+   ============================================ */
+.ishani-cart-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #2A2A2A;
+  color: #FFFFFF;            /* ✅ white icon */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-/* Cart Badge */
+.ishani-cart-btn:hover {
+  border-color: #3B82F6;
+  background: rgba(59, 130, 246, 0.05);
+}
+
 .ishani-cart-badge {
   position: absolute;
   top: -6px;
@@ -221,7 +204,9 @@
   border: 2px solid #0A0A0A;
 }
 
-/* User Avatar */
+/* ============================================
+   USER AVATAR (logged in)
+   ============================================ */
 .ishani-user-btn {
   width: 38px;
   height: 38px;
@@ -237,10 +222,51 @@
   justify-content: center;
   transition: background 0.25s ease;
   letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
-.ishani-user-btn:hover {
+.ishani-user-btn:hover { background: #2563EB; }
+
+/* ============================================
+   AUTH ICONS (not logged in) — WHITE
+   ============================================ */
+.ishani-auth-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ishani-auth-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #2A2A2A;
+  color: #FFFFFF;            /* ✅ white icons */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.ishani-auth-icon:hover {
+  border-color: #3B82F6;
+  background: rgba(59, 130, 246, 0.08);
+  color: #FFFFFF;
+}
+
+/* Sign Up thoda highlighted */
+.ishani-auth-icon.signup {
+  background: #3B82F6;
+  border-color: #3B82F6;
+  color: #FFFFFF;
+}
+
+.ishani-auth-icon.signup:hover {
   background: #2563EB;
+  border-color: #2563EB;
 }
 
 /* ============================================
@@ -258,11 +284,10 @@
   align-items: center;
   justify-content: center;
   transition: border-color 0.25s ease;
+  cursor: pointer;
 }
 
-.ishani-toggle:hover {
-  border-color: #3B82F6;
-}
+.ishani-toggle:hover { border-color: #3B82F6; }
 
 /* ============================================
    DROPDOWN
@@ -280,7 +305,6 @@
 .ishani-dropdown .dropdown-item {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
-  font-weight: 400;
   color: #9CA3AF;
   padding: 9px 12px;
   border-radius: 6px;
@@ -300,38 +324,25 @@
   color: #6B7280;
 }
 
-.ishani-dropdown .dropdown-item:hover i {
-  color: #FFFFFF;
-}
+.ishani-dropdown .dropdown-item:hover i { color: #FFFFFF; }
 
 .ishani-dropdown .dropdown-divider {
   border-color: #252525;
   margin: 4px 0;
 }
 
-.ishani-dropdown .logout-item {
-  color: #EF4444;
-}
-
-.ishani-dropdown .logout-item i {
-  color: #EF4444;
-}
-
+.ishani-dropdown .logout-item { color: #EF4444; }
+.ishani-dropdown .logout-item i { color: #EF4444; }
 .ishani-dropdown .logout-item:hover {
   background: rgba(239, 68, 68, 0.08);
   color: #EF4444;
 }
-
-.ishani-dropdown .logout-item:hover i {
-  color: #EF4444;
-}
+.ishani-dropdown .logout-item:hover i { color: #EF4444; }
 
 /* ============================================
    MOBILE MENU
    ============================================ */
-.ishani-mobile-menu {
-  padding: 0 2rem 16px;
-}
+.ishani-mobile-menu { padding: 0 2rem 16px; }
 
 .ishani-mobile-inner {
   background: #0F0F0F;
@@ -345,7 +356,6 @@
   align-items: center;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  font-weight: 400;
   color: #9CA3AF;
   text-decoration: none;
   padding: 12px 14px;
@@ -365,11 +375,67 @@
   font-weight: 500;
 }
 
+/* Mobile auth buttons */
+.ishani-mobile-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.8rem 0.4rem 0.4rem;
+  border-top: 1px solid #252525;
+  margin-top: 0.5rem;
+}
+
+.ishani-mobile-auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.ishani-mobile-auth-btn.signin {
+  background: transparent;
+  border: 1px solid #2A2A2A;
+  color: #FFFFFF;
+}
+
+.ishani-mobile-auth-btn.signin:hover {
+  border-color: #3B82F6;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.ishani-mobile-auth-btn.signup {
+  background: #3B82F6;
+  border: 1px solid #3B82F6;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.ishani-mobile-auth-btn.signup:hover {
+  background: #2563EB;
+  border-color: #2563EB;
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 991px) {
-  .ishani-navbar .container-fluid {
-    padding: 0 1.2rem;
+  .ishani-navbar .container-fluid { padding: 0 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .ishani-cart-btn,
+  .ishani-auth-icon,
+  .ishani-user-btn,
+  .ishani-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
   }
 }

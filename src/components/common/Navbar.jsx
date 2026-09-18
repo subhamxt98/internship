@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useCart } from '../../context/CartContext'
 import './css/navbar.css'
+import logo from '../../assets/banner.jpeg'   // ✅ same banner as logo
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -37,14 +38,11 @@ const Navbar = () => {
         {/* ===== LOGO ===== */}
         <Link to="/" className="ishani-logo">
           <div className="ishani-logo-img">
-            <img
-              src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=200&h=200&fit=crop&q=85"
-              alt="ISHANI Cosmetics"
-            />
+            <img src={logo} alt="ANSHIÉ's GLAM" />
           </div>
           <div className="ishani-logo-text d-none d-md-flex">
-            <span className="ishani-brand">ISHANI</span>
-            <span className="ishani-tagline">Cosmetics</span>
+            <span className="ishani-brand">ANSHIÉ's</span>
+            <span className="ishani-tagline">GLAM</span>
           </div>
         </Link>
 
@@ -67,16 +65,17 @@ const Navbar = () => {
         {/* ===== RIGHT SIDE ===== */}
         <div className="ishani-right">
 
-          {/* Cart */}
-          <Link to="/cart" className="ishani-cart-btn">
-            <i className="bi bi-bag"></i>
+          {/* Cart — hover pe "View Cart" tooltip */}
+          <Link to="/cart" className="ishani-cart-btn" data-tooltip="View Cart">
+            <i className="bi bi-bag-heart"></i>
             {cartCount > 0 && (
               <span className="ishani-cart-badge">{cartCount}</span>
             )}
           </Link>
 
-          {/* Auth — Sirf User Avatar (jab logged in) */}
-          {isAuthenticated && (
+          {/* ===== AUTH ===== */}
+          {isAuthenticated ? (
+            /* ✅ Login ho gaya — sirf user avatar (auth icons hat gaye) */
             <div className="dropdown">
               <button
                 className="ishani-user-btn"
@@ -108,6 +107,24 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
+          ) : (
+            /* ❌ Login nahi — Sign In / Sign Up white icons (hover pe text) */
+            <div className="ishani-auth-icons">
+              <Link
+                to="/login"
+                className="ishani-auth-icon signin"
+                data-tooltip="Sign In"
+              >
+                <i className="bi bi-box-arrow-in-right"></i>
+              </Link>
+              <Link
+                to="/login"
+                className="ishani-auth-icon signup"
+                data-tooltip="Sign Up"
+              >
+                <i className="bi bi-person-plus"></i>
+              </Link>
+            </div>
           )}
 
           {/* Mobile Toggle */}
@@ -138,6 +155,18 @@ const Navbar = () => {
                 </Link>
               )
             })}
+
+            {/* Mobile auth buttons (jab login nahi) */}
+            {!isAuthenticated && (
+              <div className="ishani-mobile-auth">
+                <Link to="/login" className="ishani-mobile-auth-btn signin">
+                  <i className="bi bi-box-arrow-in-right"></i> Sign In
+                </Link>
+                <Link to="/login" className="ishani-mobile-auth-btn signup">
+                  <i className="bi bi-person-plus"></i> Sign Up
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
