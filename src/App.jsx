@@ -1,41 +1,29 @@
-// src/App.jsx
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/common/Navbar'
-import Footer from './components/common/Footer'
-
-import HomePage from './pages/HomePage'
-import ShopPage from './pages/ShopPage'
-import About from './pages/About'                    // ✅ About
-import Contact from './pages/Contact'                // ✅ Contact
-import CartPage from './pages/CartPage'              // ✅ Cart
-import OrderSuccessPage from './pages/OrderSuccessPage'  // ✅ Order Success
-import LoginPage from './pages/LoginPage'            // ✅ Login
-import RegisterPage from './pages/RegisterPage'      // ✅ Register
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import OrderSuccessPage from "./pages/OrderSuccessPage";
 
 function App() {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh',
-      background: '#050505'
-    }}>
+    <Router>
       <Navbar />
-      <main style={{ flex: 1, background: '#050505' }}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop" element={<ShopPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<CartPage />} />                     {/* ✅ Cart route */}
-          <Route path="/order-success" element={<OrderSuccessPage />} />    {/* ✅ Order Success route */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/order-success" element={<OrderSuccessPage />} />
+      </Routes>
       <Footer />
-    </div>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
+//dsd//
