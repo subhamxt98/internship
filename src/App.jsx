@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+import HomePage from "./pages/HomePage";
 import About from "./pages/about";
 import Contact from "./pages/contact";
-import Cart from "./pages/Cart";
-import Login from "./pages/Login";
+import CartPage from "./pages/CartPage";
+import LoginPage from "./pages/LoginPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 
 function App() {
@@ -13,11 +13,11 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/order-success" element={<OrderSuccessPage />} />
       </Routes>
       <Footer />
@@ -26,4 +26,3 @@ function App() {
 }
 
 export default App;
-//dsd//
